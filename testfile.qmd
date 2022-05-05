@@ -1,0 +1,52 @@
+---
+title: "testfile"
+format: html
+---
+
+# Libraries
+
+```{r}
+library(stringr)
+```
+
+# Pronouns table
+
+```{r}
+pronouns <- c("he/him", "she/her", "they/them")
+```
+
+# Example bios
+
+```{r}
+male <- "Some people call me the space cowboy he/him"
+female <- "We are the Daughters of witched you couldn't burn -- She/Her/Hers"
+enby <- "anarcho-bidenist They/Them pronouns"
+```
+
+```{r}
+sapply(pronouns, function(p) grepl(p, tolower(enby)))
+```
+
+```{r}
+check_pronouns <- function(string,
+                           pronouns = c("he/him",
+                                        "she/her",
+                                        "they/them")) {
+  sapply(pronouns, function(p)
+    grepl(p, tolower(string))) |>
+    t() |>
+    data.frame()
+}
+
+check_pronouns(male)
+```
+
+```{r}
+test_df <- data.frame(male) |>
+  mutate(
+    pronouns = check_pronouns(male)
+  )
+
+test_df
+```
+

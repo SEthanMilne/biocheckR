@@ -1,0 +1,10 @@
+Package: biocheckR
+Type: Package
+Title: Finds Strings in Twitter Bios
+Version: 0.1.0
+Author: Ethan Milne
+Maintainer: Ethan Milne <emilne.phd@ivey.ca>
+Description: Finds strings in twitter bios.
+License: MIT
+Encoding: UTF-8
+LazyData: true
